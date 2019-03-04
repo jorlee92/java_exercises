@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Assume you are coding an animal related game where you dump some random animals 
  * in the middle of the screen and they run to their resting places to eat and sleep.
@@ -50,7 +52,105 @@
  * A cat weighing 18 pounds runs at a speed of 3 mph to it's home and eats meat
  */
 public class AnimalSimulation {
+	static class Animal {
+		private int weight;
+		private int runningSpeed;
+		public Animal(int weight, int speed){
+			this.weight = weight;
+			this.runningSpeed = speed;
+		}
+		public void describe() {
+			// TODO Auto-generated method stub
+			
+		}
+		public String getStats() {
+			return " that weighs " + this.weight + " pounds and can run at " + this.runningSpeed + " mph";
+		}
+	}
+	static class Lion extends Animal{
+
+		public Lion(int weight, int speed) {
+			super(weight, speed);
+			// TODO Auto-generated constructor stub
+		}
+		public void describe() {
+			System.out.println("I am a lion" + getStats());
+		}
+		
+	}
+	static class Tiger extends Animal {
+		public Tiger(int weight, int speed){
+			super(weight, speed);
+		}
+		public void describe() {
+			System.out.println("I am a tiger" + getStats());
+		}
+	}
+	static class Hippo extends Animal {
+		public void describe() {
+			System.out.println("I am a hippo" + getStats());
+		}
+		public Hippo(int weight, int speed) {
+			super(weight, speed);
+			// TODO Auto-generated constructor stub
+		}}
+	static class Cat extends Animal {
+		public void describe() {
+			System.out.println("I am a cat" + getStats());
+		}
+		public Cat(int weight, int speed) {
+			super(weight, speed);
+			// TODO Auto-generated constructor stub
+		}}
+	static class Rooster extends Animal {
+		public void describe() {
+			System.out.println("I am a rooster" + getStats());
+		}
+		public Rooster(int weight, int speed) {
+			super(weight, speed);
+			// TODO Auto-generated constructor stub
+		}}
+	static class Rabbit extends Animal {
+		public void describe() {
+			System.out.println("I am a rabbit" + getStats());
+		}
+		public Rabbit(int weight, int speed) {
+			super(weight, speed);
+			// TODO Auto-generated constructor stub
+		}}
 	public static void main(String[] args) {
-    	System.out.println("Hello from AWS Cloud9!");
+    	int num = 0;
+    	int weight = 0;
+    	int speed = 0;
+    	Random rand = new Random();
+    	Animal[] animals = new Animal[20];
+    	for (int i = 0; i < 20; i++) {
+    		num = rand.nextInt(5) + 1;
+    		weight = rand.nextInt(100);
+    		speed = rand.nextInt(50);
+    		Animal a = null;
+			 if(num == 1){
+			 	a = new Lion(weight, speed);
+			 }
+			 if(num == 2){
+			 	a = new Tiger(weight, speed);
+			 }
+				if(num == 3){
+			 	a = new Hippo(weight, speed);
+			 }
+				if(num == 4){
+			 	a = new Cat(weight, speed);
+			 }
+				if(num == 5){
+			 	a = new Rooster(weight, speed);
+			 }
+				if(num == 6){
+			 	a = new Rabbit(weight, speed);
+			 }
+			animals[i] = a;
+    	}
+    	for (Animal animal : animals) {
+			animal.describe();
+		}
 	}
 }
