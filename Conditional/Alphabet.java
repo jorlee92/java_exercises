@@ -7,8 +7,16 @@
  * for a character. It should be in the range for the english alphabet (65 to 122).
  * Anything outside this range is not an alphabet.
  */
+import java.util.*;
 public class Alphabet {
 	public static void main(String[] args) {
-    	
+    	Scanner sc = new Scanner(System.in);
+    	char c = sc.nextLine().charAt(0);
+    	if(c > 'z' || c < 'a'){
+    		System.out.println("Not a letter");
+    	}
+    	else {
+    		System.out.println("Is a letter");
+    	}
 	}
 }
